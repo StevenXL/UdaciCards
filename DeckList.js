@@ -30,7 +30,7 @@ class DeckList extends React.Component {
     return (
       <View>
         <Text>Decks</Text>
-        {decks.map(deck => <DeckSnippet {...deck} />)}
+        {decks.map(deck => <DeckSnippet key={deck.title} {...deck} />)}
       </View>
     );
   }
