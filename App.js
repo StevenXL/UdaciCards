@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { StackNavigator } from "react-navigation";
 
 import DeckList from "./DeckList";
 
@@ -21,3 +22,5 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   }
 });
+
+const Nav = StackNavigator({ Home: { screen: DeckList } });
