@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { cardsToCardsText } from "./utilities";
 import { getDeck } from "./reducer";
 
-const Deck = ({ deck }) => {
+const Deck = ({ navigation, deck }) => {
   const { title, cards } = deck;
   return (
     <View>
@@ -17,9 +17,15 @@ const Deck = ({ deck }) => {
         {cardsToCardsText(cards)}
       </Text>
 
-      <Button title="Start Quiz!" />
+      <Button
+        title="Start Quiz!"
+        onPress={() => navigation.navigate("Quiz", { deck: title })}
+      />
 
-      <Button title="Add Card" />
+      <Button
+        title="Add Card"
+        onPress={() => navigation.navigate("CardForm", { deckId: title })}
+      />
     </View>
   );
 };
