@@ -28,7 +28,7 @@ const decks = [
 class DeckList extends React.Component {
   render() {
     return (
-      <View style={{ borderColor: "red", borderWidth: 3 }}>
+      <View style={{ flex: 1 }}>
         <Text>Decks</Text>
         {decks.map(deck => <DeckSnippet key={deck.title} {...deck} />)}
       </View>
