@@ -34,4 +34,10 @@ export default (state = initialState, action) => {
 };
 
 // selectors
-export const getDecks = state => Ramda.values(state);
+export const getDecks = state => {
+  return Ramda.values(state);
+};
+
+export const getDeck = (state, deckId) => {
+  return state[deckId];
+};

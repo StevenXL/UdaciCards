@@ -1,13 +1,34 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
+import { connect } from "react-redux";
 
-const Deck = props => {
-  console.log(props.navigation.state.params.title);
+import { cardsToCardsText } from "./utilities";
+import { getDeck } from "./reducer";
+
+const Deck = ({ deck }) => {
+  const { title, cards } = deck;
   return (
     <View>
-      <Text>Hello</Text>
+      <Text>
+        Title: {title}
+      </Text>
+
+      <Text>
+        {cardsToCardsText(cards)}
+      </Text>
+
+      <Button title="Start Quiz!" />
+
+      <Button title="Add Card" />
     </View>
   );
 };
 
-export default Deck;
+const mapStateToProps = (state, { navigation }) => {
+  const deckId = navigation.state.params.title;
+  const deck = getDeck(state, deckId);
+
+  return { deck };
+};
+
+export default connect(mapStateToProps)(Deck);

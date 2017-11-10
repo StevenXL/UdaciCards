@@ -1,8 +1,8 @@
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 
-// we need to pas navigation object from teh stack navigator down here;
-// and when we do we need to tell it to go to to the correct view with some data
+import { cardsToCardsText } from "./utilities";
+
 class DeckSnippet extends React.Component {
   render() {
     const { title, cards, navigation } = this.props;
@@ -14,7 +14,7 @@ class DeckSnippet extends React.Component {
           Deck: {title}
         </Text>
         <Text>
-          Cards: {numberOfCards} {numberOfCards === 1 ? "card" : "cards"}
+          {cardsToCardsText(cards)}
         </Text>
       </TouchableOpacity>
     );
