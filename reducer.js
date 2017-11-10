@@ -1,4 +1,7 @@
-const initialState = [
+import Ramda from "ramda";
+
+// ONLY FOR DEVELOPMENT
+const decks = [
   {
     title: "First",
     cards: [
@@ -21,9 +24,14 @@ const initialState = [
   }
 ];
 
+const initialState = Ramda.indexBy(deck => deck.title, decks);
+
 export default (state = initialState, action) => {
   switch (action.type) {
     default:
       return state;
   }
 };
+
+// selectors
+export const getDecks = state => Ramda.values(state);

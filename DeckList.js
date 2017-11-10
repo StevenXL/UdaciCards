@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Text, View } from "react-native";
 import styles from "./styles";
+import { getDecks } from "./reducer";
 
 import DeckSnippet from "./DeckSnippet";
 
@@ -29,7 +30,9 @@ class DeckList extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { decks: state };
+  const decks = getDecks(state);
+
+  return { decks };
 };
 
 export default connect(mapStateToProps)(DeckList);
