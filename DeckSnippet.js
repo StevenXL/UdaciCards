@@ -9,10 +9,10 @@ class DeckSnippet extends React.Component {
     return (
       <View>
         <Text>
-          {title}
+          Deck: {title}
         </Text>
         <Text>
-          {numberOfCards} {numberOfCards === 1 ? "card" : "cards"}
+          Cards: {numberOfCards} {numberOfCards === 1 ? "card" : "cards"}
         </Text>
       </View>
     );

@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
+import styles from "./styles";
 
 import DeckSnippet from "./DeckSnippet";
 const decks = [
@@ -25,12 +26,16 @@ const decks = [
   }
 ];
 
+const centerAll = [styles.flexOne, styles.justifyCenter, styles.alignCenter];
+
 class DeckList extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={[styles.flexOne]}>
         <Text>Decks</Text>
-        {decks.map(deck => <DeckSnippet key={deck.title} {...deck} />)}
+        <View style={centerAll}>
+          {decks.map(deck => <DeckSnippet key={deck.title} {...deck} />)}
+        </View>
       </View>
     );
   }
