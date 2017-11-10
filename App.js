@@ -1,19 +1,21 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { StackNavigator } from "react-navigation";
+import { Provider } from "react-redux";
+
+import StackNavigation from "./StackNavigation";
 
 import styles from "./styles";
 
-import DeckList from "./DeckList";
+import store from "./store";
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.flexOne}>
-        <Nav />
-      </View>
+      <Provider store={store}>
+        <View style={styles.flexOne}>
+          <StackNavigation />
+        </View>
+      </Provider>
     );
   }
 }
-
-const Nav = StackNavigator({ Home: { screen: DeckList } });
