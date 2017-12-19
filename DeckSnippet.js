@@ -11,10 +11,10 @@ class DeckSnippet extends React.Component {
     return (
       <TouchableOpacity onPress={() => navigation.navigate("Deck", { title })}>
         <Text>
-          Deck: {title}
+          Deck Name: {title}
         </Text>
         <Text>
-          {cardsToCardsText(cards)}
+          Cards in Deck: {cardsToCardsText(cards)}
         </Text>
       </TouchableOpacity>
     );

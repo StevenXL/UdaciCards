@@ -18,12 +18,12 @@ const Deck = ({ navigation, deck }) => {
       </Text>
 
       <Button
-        title="Start Quiz!"
+        title="Start a Quiz"
         onPress={() => navigation.navigate("Quiz", { deck: title })}
       />
 
       <Button
-        title="Add Card"
+        title="Create New Question"
         onPress={() => navigation.navigate("CardForm", { deckId: title })}
       />
     </View>
