@@ -27,6 +27,8 @@ const Deck = ({ navigation, deck }) => {
         title="Create New Question"
         onPress={() => navigation.navigate("CardForm", { deckId: title })}
       />
+
+      <Button title="All Decks" onPress={() => navigation.navigate("Home")} />
     </View>
   );
 };
