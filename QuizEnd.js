@@ -1,13 +1,9 @@
 import R from "ramda";
 import React from "react";
-import styles from "./styles";
 import { View, Text, Button } from "react-native";
 import { connect } from "react-redux";
 
-const centerAll = [styles.flexOne, styles.justifyCenter, styles.alignCenter];
-
-const calculatePercent = (correct, attempts) =>
-  Math.round(correct / attempts * 100);
+import { centerAll, calculatePercent } from "./helpers";
 
 const QuizEnd = ({ correct, attempts, restartQuiz, backToDeck }) => {
   return (

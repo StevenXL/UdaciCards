@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles";
 import { View, Text, Button } from "react-native";
 
-const centerAll = [styles.flexOne, styles.justifyCenter, styles.alignCenter];
+import { centerAll } from "./helpers";
 
 const QuizWithNoCards = ({ navigation, deckId }) => {
   return (

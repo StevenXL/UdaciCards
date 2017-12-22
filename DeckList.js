@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { View, Text, Button } from "react-native";
+
 import styles from "./styles";
+import { centerAll } from "./helpers";
 import { getDecks } from "./reducer";
 
 import DeckSnippet from "./DeckSnippet";
-
-const centerAll = [styles.flexOne, styles.justifyCenter, styles.alignCenter];
 
 class DeckList extends React.Component {
   render() {
