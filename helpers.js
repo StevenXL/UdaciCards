@@ -4,6 +4,7 @@ import { Notifications, Permissions } from "expo";
 import styles from "./styles";
 
 const NOTIFICATION_KEY = "UdaciCards:notifications";
+const STORAGE_KEY = "UdaciCards:storage";
 
 export const centerAll = [
   styles.flexOne,
@@ -14,7 +15,7 @@ export const centerAll = [
 export const calculatePercent = (correct, attempts) =>
   Math.round(correct / attempts * 100);
 
-const clearLocalNotification = () => {
+export const clearLocalNotification = () => {
   return AsyncStorage.removeItem(NOTIFICATION_KEY).then(
     Notifications.cancelAllScheduledNotificationsAsync
   );
@@ -50,3 +51,12 @@ export const setLocalNotification = () => {
     }
   });
 };
+
+export const rehydrateState = () => {
+  AsyncStorage.getItem(STORAGE_KEY)
+    .then(JSON.parse)
+    .then(state => (state ? state : {}));
+};
+
+export const storeState = state =>
+  AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(state));

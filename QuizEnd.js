@@ -17,6 +17,8 @@ class QuizEnd extends React.Component {
   }
 
   render() {
+    const { correct, attempts, restartQuiz, backToDeck } = this.props;
+
     return (
       <View style={centerAll}>
         <Text>
