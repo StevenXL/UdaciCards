@@ -17,10 +17,11 @@ const Deck = ({ navigation, deck }) => {
         {cardsToCardsText(cards)}
       </Text>
 
-      <Button
-        title="Start a Quiz"
-        onPress={() => navigation.navigate("Quiz", { deckId: title })}
-      />
+      {cards.length > 0 &&
+        <Button
+          title="Start a Quiz"
+          onPress={() => navigation.navigate("Quiz", { deckId: title })}
+        />}
 
       <Button
         title="Create New Question"
