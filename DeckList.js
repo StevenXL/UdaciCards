@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Text, View } from "react-native";
+import { View, Text, Button } from "react-native";
 import styles from "./styles";
 import { getDecks } from "./reducer";
 
@@ -23,6 +23,12 @@ class DeckList extends React.Component {
               navigation={this.props.navigation}
             />
           )}
+
+          <Button
+            accessibilityLabel="Add New Deck"
+            onPress={() => this.props.navigation.navigate("NewDeckForm")}
+            title="Add New Deck"
+          />
         </View>
       </View>
     );

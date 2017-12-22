@@ -18,8 +18,9 @@ class CardForm extends React.Component {
 
   resetState = () => this.setState({ question: "", answer: "" });
 
-  navigateToDeck = () =>
-    this.props.navigation.navigate("Deck", { title: this.props.deckId });
+  navigateToDeck = () => {
+    return this.props.navigation.navigate("Deck", { title: this.props.deckId });
+  };
 
   handleOnPress = () => {
     const { deckId } = this.props;

@@ -1,9 +1,7 @@
 import R from "ramda";
-import { ADD_CARD_TO_DECK } from "../types";
+import { ADD_CARD_TO_DECK, ADD_NEW_DECK } from "../types";
 
-const decks = [{ title: "First", cards: [] }];
-
-const initialState = R.indexBy(R.prop("title"), decks);
+const initialState = {};
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -17,6 +15,8 @@ export default (state = initialState, action) => {
       const lens = R.lensPath(pathToCards);
 
       return R.set(lens, newCards, state);
+    case ADD_NEW_DECK:
+      return { ...state, [action.payload.title]: action.payload };
     default:
       return state;
   }
@@ -25,3 +25,5 @@ export default (state = initialState, action) => {
 export const getDecks = decks => R.values(decks);
 
 export const getDeck = (decks, deckId) => decks[deckId];
+
+export const getCardIdsForDeck = (decks, deckId) => decks[deckId].cards;

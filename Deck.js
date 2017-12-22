@@ -19,7 +19,7 @@ const Deck = ({ navigation, deck }) => {
 
       <Button
         title="Start a Quiz"
-        onPress={() => navigation.navigate("Quiz", { deck: title })}
+        onPress={() => navigation.navigate("Quiz", { deckId: title })}
       />
 
       <Button
