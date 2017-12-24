@@ -1,10 +1,13 @@
 import R from "ramda";
 import { ADD_CARD_TO_DECK, MARK_CARD_CORRECT } from "../types";
+import { REHYDRATE } from "redux-persist/constants";
 
 const initialState = {};
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case REHYDRATE:
+      return action.payload.cards || state;
     case ADD_CARD_TO_DECK:
       return { ...state, [action.payload.card.id]: action.payload.card };
     case MARK_CARD_CORRECT:

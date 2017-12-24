@@ -1,10 +1,13 @@
 import R from "ramda";
 import { ADD_CARD_TO_DECK, ADD_NEW_DECK } from "../types";
+import { REHYDRATE } from "redux-persist/constants";
 
 const initialState = {};
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case REHYDRATE:
+      return action.payload.decks || state;
     case ADD_CARD_TO_DECK:
       const deckId = action.payload.deckId;
       const pathToCards = [deckId, "cards"];
