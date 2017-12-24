@@ -51,12 +51,3 @@ export const setLocalNotification = () => {
     }
   });
 };
-
-export const rehydrateState = () => {
-  AsyncStorage.getItem(STORAGE_KEY)
-    .then(JSON.parse)
-    .then(state => (state ? state : {}));
-};
-
-export const storeState = state =>
-  AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(state));
