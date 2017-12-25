@@ -65,9 +65,7 @@ class Quiz extends React.Component {
   };
 
   backToDeck = () => {
-    const { navigation, deckId } = this.props;
-
-    return navigation.navigate("Deck", { title: deckId });
+    this.props.navigation.goBack();
   };
 
   render() {
